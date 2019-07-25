@@ -26,6 +26,7 @@
           title: 'Hello World!'
         });
       }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.load['GEOCODER_API_KEY']%>&callback=initMap">
@@ -47,7 +48,7 @@
 
 
 
-<% @place.photos.each do |photo| %>
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
   
   <%= f.input :caption %>
   <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
@@ -68,7 +69,7 @@
         </button>
         <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
       </div>
-      <%= simple_form_for @comment, url: place_comments_path(@place) do |comment| %>
+      <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :message %>
           <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
