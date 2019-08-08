@@ -3,7 +3,11 @@
 <i><%= @place.address %></i>
 <br/><br/>
 <p><%= @place.description %></p>
+
+
   
+
+
   
   </head>
   <body>
@@ -47,7 +51,7 @@
 
 
 <!--Photo Modal -->
-<div class="modal fade" id="myPhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -70,7 +74,42 @@
   </div>
 </div>
 
+<!-- Photos -->
+<div style="margin-top: 10px; padding: 13px 0 10px 0;">
+<div class="col-10 offset-1">
+  <h2 class="float-left">Photos</h2>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
+  Upload Photo
+</button>
+</div>
+</div>
+
+<div class="clear"></div>
+
+<div class="row">
+ 
+<div class="row">
+  <!-- photos -->
+
+  <div class="booyah-box col-xs-10 col-xs-offset-1">
+
+    <% if @place.photos.present?%>
+        <% @place.photos.each do |photo| %>
+          
+         <div class="col-md-4 showphoto">
+            <%= image_tag photo.picture.url %>  
+                <div class="caption">
+                  <b><%= photo.caption %></b>
+                <small><%= photo.user.email %></small>
+                </div>
+          </div>
+      </div>
+      <% end %>
+      <% end %>
+</div>  
+</div>
 
 
 <!-- Comment Modal -->
@@ -78,7 +117,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss
+        ="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
         <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
@@ -100,24 +140,17 @@
 
 <div class="col-10 offset-1">
 <h1 class="float-left">Comments</h1>
+
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myPhotoModal">
-  Upload Photo
-</button>
+
+
 <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
   Add a comment
 </button>
 </div>
 
-
-
-
-
-
-
-
 <div class="clear"></div>
-
 
 <div class="row">
 <% @place.comments.each do |comment| %>

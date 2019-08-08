@@ -66,3 +66,15 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+.photo-background {
+  padding: 10px;
+  margin: 10px;
+  /* border: solid; */
+}
+
+.photo {
+  height: 300px;
+  width: 500px;
+  margin: 20px;
+  border: solid rgb(129, 143, 107);
+}
