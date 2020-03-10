@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Yelp clone web application that provides restaurant and entertainmnet review for users. With this application users can post photo of a place give comment, star, and provide address on google map.
 
-Things you may want to cover:
+## Features
+  * Amazon AWS3 web service to store images. 
+  * Google API to show the addess on a map.
+  * Devise for user authentication
+  
 
-* Ruby version
+## Coding Language
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  Ruby in Rails
+ 
